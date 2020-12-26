@@ -1,6 +1,6 @@
 const React = require('react');
 const Try = require('./Try');
-const { Component } = React;
+const { Component, createRef } = React;
 
 function getNumbers() {
   // this 사용하지 않는 함수는 밖으로 빼도 된다.
@@ -32,6 +32,13 @@ class NumberBaseball extends Component {
           tries: [...prevState.tries, { try: value, result: '홈런!' }],
         }
       });
+      alert('게임을 다시 시작합니다!');
+      this.setState({
+        value: '',
+        answer: getNumbers(),
+        tries: [],
+      });
+      this.inputRef.current.focus();
     } else {
       const answerArray = value.split('').map((v) => parseInt(v));
       let strike = 0;
@@ -46,6 +53,7 @@ class NumberBaseball extends Component {
           answer: getNumbers(),
           tries: [],
         });
+        this.inputRef.current.focus();
       } else {
         for (let i = 0; i < 4; i++) {
           if (answerArray[i] === answer[i]) {
@@ -66,6 +74,7 @@ class NumberBaseball extends Component {
             value: '',
           }
         });
+        this.inputRef.current.focus();
       }
     }
   };
@@ -77,13 +86,25 @@ class NumberBaseball extends Component {
     });
   };
 
+  inputRef = createRef();
+
+  /*
+  inputRef;
+
+  onInputRef = (c) => {
+    console.log(c);
+    //다른 동작
+    this.inputRef = c;
+  }
+  */
+
   render() {
     const { result, value, tries } = this.state;
     return (
       <>
         <h1>{result}</h1>
         <form onSubmit={this.onSubmitForm}>
-          <input maxLength={4} value={value} onChange={this.onChangeInput} />
+          <input ref={this.inputRef} maxLength={4} value={value} onChange={this.onChangeInput} />
         </form>
         <div>시도: {tries.length}</div>
         <ul>
