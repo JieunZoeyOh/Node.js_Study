@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 
-const WordRelay = require('./WordRelay')
+const NumberBaseballHooks = require('./NumberBaseballHooks')
 
-ReactDom.render(<WordRelay />, document.querySelector('#root'));
+ReactDom.render(<NumberBaseballHooks />, document.querySelector('#root'));
