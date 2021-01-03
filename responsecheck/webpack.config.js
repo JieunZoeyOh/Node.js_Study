@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
-  name: 'pureComponent-setting', // 모듈 설명
+  name: 'responseCheck-setting', // 모듈 설명
   mode: 'development', // 실 서비스: production
   devtool: 'eval', // 빠르게 | 실 서비스: hidden-source-map
 
