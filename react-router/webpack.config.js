@@ -51,6 +51,7 @@ module.exports = {
   }, // 출력
 
   devServer: {
+    historyApiFallback: true,
     publicPath: '/dist/',
     hot: true,
     port: 3000,

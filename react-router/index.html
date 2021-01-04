@@ -4,17 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>지뢰찾기</title>
+    <title>router</title>
     <style>
-        table {
-            border-collapse: collapse;
+        #screen {
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
 
-        td {
-            border: 1px solid black;
-            width: 40px;
-            height: 40px;
-            text-align: center;
+        #screen.waiting {
+            background-color: aqua;
+        }
+
+        #screen.ready {
+            background-color: red;
+            color: white;
+        }
+
+        #screen.now {
+            background-color: greenyellow;
         }
     </style>
 </head>
